@@ -1,0 +1,53 @@
+{
+  "name": "strip-newline-salesforce",
+  "version": "1.0.0",
+  "description": "Strip EOF newline characters. Useful where Prettier and Salesforce are used together.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "strip-newline-salesforce": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint src/*.js --fix",
+    "lint": "eslint src/*.js",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "salesforce",
+    "prettier",
+    "eof",
+    "newline"
+  ],
+  "author": "Quinn McPhail <quinnmcphail@me.com>",
+  "repository": "https://github.com/quinnmcphail/strip-newline-salesforce",
+  "bugs": "https://github.com/quinnmcphail/strip-newline-salesforce/issues",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^15.6.2",
+    "@types/vinyl": "^2.0.4",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.{js,ts,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "arg": "^5.0.0",
+    "plugin-error": "^1.0.1",
+    "vinyl": "^2.2.1"
+  }
+}
