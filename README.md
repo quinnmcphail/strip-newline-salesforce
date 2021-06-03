@@ -19,7 +19,10 @@ const stripFinalNewline =
   require("strip-newline-salesforce").removeNewlineFromGulpProcess;
 
 gulp.task("remove EOF newline", function () {
-  return gulp.src("src", { base: "./" }).pipe(gulp.dest("./"));
+  return gulp
+    .src("src", { base: "./" })
+    .pipe(stripFinalNewline())
+    .pipe(gulp.dest("./"));
 });
 ```
 
